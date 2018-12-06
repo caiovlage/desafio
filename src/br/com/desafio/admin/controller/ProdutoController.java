@@ -22,8 +22,6 @@ public class ProdutoController {
 	public ModelAndView produto() {
 		Produto produto = new Produto();
 		
-		//DecimalFormat formatador = new DecimalFormat("0.00");
-		//produto.setPreco(Double.parseDouble(formatador.format(1.00D + new Random().nextDouble() * (100.00D - 1.00D )).replaceAll(",", ".")));
 		return new ModelAndView("produto","command", produto);
 	}
 	

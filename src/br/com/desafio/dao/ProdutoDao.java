@@ -31,6 +31,11 @@ public class ProdutoDao {
                    return entityManager.createQuery("FROM " + Produto.class.getName()).getResultList();
          }
          
+        /* @SuppressWarnings("unchecked")
+         public List<Produto> findAllByVenda() {
+                   return entityManager.createQuery("select p from Produto p inner join VendaProdutos v on v.Produto.idProduto = p.idProduto").getResultList();
+         }*/
+         
          @SuppressWarnings("unchecked")
          public List<String> getCategorias()
          {

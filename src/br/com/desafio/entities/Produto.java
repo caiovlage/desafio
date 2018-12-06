@@ -1,10 +1,14 @@
 package br.com.desafio.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -28,8 +32,8 @@ public class Produto {
 	@Column
 	private double preco;
 	
-	@OneToOne(mappedBy="produto")  
-	private VendaProdutos vendaProdutos;
+	@OneToMany(mappedBy="produto", cascade = CascadeType.ALL)  
+	private List<VendaProdutos> vendaProdutos;
 	
 	
 	public Produto() { }
@@ -95,11 +99,13 @@ public class Produto {
 		return preco;
 	}
 
-	public VendaProdutos getVendaProdutos() {
+	public List<VendaProdutos> getVendaProdutos() {
 		return vendaProdutos;
 	}
 
-	public void setVendaProdutos(VendaProdutos vendaProdutos) {
+	public void setVendaProdutos(List<VendaProdutos> vendaProdutos) {
 		this.vendaProdutos = vendaProdutos;
 	}
+
+	
 }

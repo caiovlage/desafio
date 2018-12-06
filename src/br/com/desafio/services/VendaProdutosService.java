@@ -1,6 +1,8 @@
 package br.com.desafio.services;
 
 import java.util.List;
+
+import br.com.desafio.dao.ProdutoDao;
 import br.com.desafio.dao.VendaProdutosDao;
 import br.com.desafio.entities.Produto;
 import br.com.desafio.entities.VendaProdutos;
@@ -8,8 +10,12 @@ import br.com.desafio.entities.VendaProdutos;
 public class VendaProdutosService {
 
 	private VendaProdutosDao vendaProdutosDao;
+	private ProdutoDao produtoDao;
+	
+	
 	public VendaProdutosService() {
 		vendaProdutosDao = new VendaProdutosDao();
+		produtoDao = new ProdutoDao();
 	}
 
 	public void salvarVendas(int id) {
@@ -20,7 +26,7 @@ public class VendaProdutosService {
 		venda.setProduto(p);
 		vendaProdutosDao.save(venda);
 	}
-	public List<VendaProdutos> getAll() {
-		return vendaProdutosDao.findAll();
+	public List<Produto> getAll() {
+		return produtoDao.findAll();
 	}
 }

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,9 +79,10 @@
 								<tbody>
 								<c:forEach var="v" items="${vendas}">
 									<tr>
-										<td>${v.produto.titulo}</td>
-										<td>${v.produto.descricao}</td>
-										<td>${v.produto.categoria}</td>
+										<td>${v.titulo}</td>
+										<td>${v.descricao}</td>
+										<td>${v.categoria}</td>
+										<td>${fn:length(v.vendaProdutos)}</td>
 									</tr>
 									</c:forEach>
 								</tbody>

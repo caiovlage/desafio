@@ -29,7 +29,6 @@ public class HomeController {
 		if(categoria != null && !categoria.trim().equals("")) {
 			modelAndView.addObject("produtos",produtoService.getByCategoria(categoria));
 		}	
-			
 		else
 			modelAndView.addObject("produtos",produtoService.getAll());
 		
