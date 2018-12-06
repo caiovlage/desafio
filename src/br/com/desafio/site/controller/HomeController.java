@@ -1,6 +1,7 @@
 package br.com.desafio.site.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,17 +21,13 @@ public class HomeController {
 
 	@RequestMapping(value ="/index", method = RequestMethod.GET)
 	public ModelAndView index(@RequestParam(value = "categoria", required=false) String categoria) {
-
+		
 		produtoService = new ProdutoService();
 
 		ModelAndView modelAndView = new ModelAndView();
 
 		if(categoria != null && !categoria.trim().equals("")) {
-			try {
-				modelAndView.addObject("produtos",produtoService.getByCategoria(new String(categoria.getBytes("ISO-8859-1"), "ISO-8859-1")));
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
+			modelAndView.addObject("produtos",produtoService.getByCategoria(categoria));
 		}	
 			
 		else
