@@ -1,0 +1,11 @@
+br\com\desafio\dao\VendaProdutosDao.class
+br\com\desafio\admin\controller\HomeController.class
+br\com\desafio\site\controller\HomeController.class
+br\com\desafio\admin\controller\ProdutoController.class
+br\com\desafio\entities\Produto.class
+br\com\desafio\site\controller\ProdutoController.class
+br\com\desafio\services\VendaProdutosService.class
+br\com\desafio\entities\VendaProdutos.class
+br\com\desafio\services\ProdutoService.class
+br\com\desafio\factory\EntityFactory.class
+br\com\desafio\dao\ProdutoDao.class
