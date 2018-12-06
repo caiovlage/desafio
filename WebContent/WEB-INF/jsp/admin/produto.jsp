@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -71,13 +72,13 @@
                 <div class="col-md-6">
                   <div class="form-label-group">
                   <form:input path="titulo" cssClass="form-control"/>
-                    <label for="firstName">Título</label>
+                    <label for="firstName">TÃ­tulo</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                     <form:input path="preco" cssClass="form-control"  />
-                    <label for="preco">Preço</label>
+                    <label for="preco">PreÃ§o</label>
                   </div>
                 </div>
               </div>
@@ -97,7 +98,7 @@
             <div class="form-group">
               <div class="form-label-group">
                 <form:input path="descricao" cssClass="form-control" />
-                <label for="descricao">Descrição</label>
+                <label for="descricao">DescriÃ§Ã£o</label>
               </div>
             </div>
              <div class="col-md-2">
@@ -112,7 +113,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Desafio 2018</span>
+              <span>Copyright Â© Desafio 2018</span>
             </div>
           </div>
         </footer>
@@ -134,7 +135,7 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">Ã—</span>
             </button>
           </div>
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

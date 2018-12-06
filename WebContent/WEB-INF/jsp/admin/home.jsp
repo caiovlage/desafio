@@ -1,5 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,36 +71,46 @@
 							<table class="table table-bordered" id="dataTable" width="100%"
 								cellspacing="0">
 								<thead>
-									<tr> 
-										<th>T�tulo</th>
-										<th>Descri��o</th>
+									<tr>
+										<th>Título</th>
+										<th>Descrição</th>
 										<th>Categoria</th>
 										<th>Qtd. Comprada</th>
 									</tr>
 								</thead>
 								<tbody>
-								<c:forEach var="v" items="${vendas}">
-									<tr>
-										<td>${v.titulo}</td>
-										<td>${v.descricao}</td>
-										<td>${v.categoria}</td>
-										<td>${fn:length(v.vendaProdutos)}</td>
-									</tr>
+									<c:forEach var="v" items="${vendas}">
+										<tr>
+											<td>${v.titulo}</td>
+											<td>${v.descricao}</td>
+											<td>${v.categoria}</td>
+											<td>${fn:length(v.vendaProdutos)}</td>
+										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card mb-3">
+							<div class="card-header">
+								<i class="fas fa-chart-area"></i> Gráfico de Vendas
+							</div>
+							<div class="card-body">
+								<canvas id="myAreaChart" width="100%" height="30"></canvas>
+							</div>
+							
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- /.container-fluid -->
-
 			<!-- Sticky Footer -->
 			<footer class="sticky-footer">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright © Your Website 2018</span>
+						<span>Copyright Â© Your Website 2018</span>
 					</div>
 				</div>
 			</footer>
@@ -124,7 +135,7 @@
 					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
-						<span aria-hidden="true">×</span>
+						<span aria-hidden="true">Ã</span>
 					</button>
 				</div>
 				<div class="modal-body">Select "Logout" below if you are ready
@@ -137,6 +148,8 @@
 			</div>
 		</div>
 	</div>
+
+
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
@@ -155,8 +168,70 @@
 
 	<!-- Demo scripts for this page-->
 	<script src="js/demo/datatables-demo.js"></script>
-	<script src="js/demo/chart-area-demo.js"></script>
 
 </body>
+<script type="text/javascript">
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
 
+// Area Chart Example
+var ctx = document.getElementById("myAreaChart");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels:[
+    	<c:forEach var="v" items="${vendas}">
+    	"${v.titulo}",
+    	</c:forEach>
+    	],
+    	
+    datasets: [{
+      label: "Volume de Vendas",
+      lineTension: 0.3,
+      backgroundColor: "rgba(2,117,216,0.2)",
+      borderColor: "rgba(2,117,216,1)",
+      pointRadius: 5,
+      pointBackgroundColor: "rgba(2,117,216,1)",
+      pointBorderColor: "rgba(255,255,255,0.8)",
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: "rgba(2,117,216,1)",
+      pointHitRadius: 50,
+      pointBorderWidth: 2,
+      data: [
+    	<c:forEach var="v" items="${vendas}">
+    	"${fn:length(v.vendaProdutos)}",
+    	</c:forEach>
+    	],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 20,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+</script>
 </html>

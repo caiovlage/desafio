@@ -1,4 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +65,7 @@
 									src="<c:out value="${produto.foto}"/>" alt=""></a>
 							</div>
 							<div class="col-lg-6"> 
-								<p><h2>Parabéns pela Compra!</h2></p>	
+								<p><h2>ParabÃ©ns pela Compra!</h2></p>	
 				  			</div>
 			  			</div>
 			  			<div class="row">
@@ -72,7 +74,7 @@
 					  			1 ${produto.titulo}  R$:${produto.preco}<br/>
 							  	Valor do Frete R$:${frete}<br/>
 							  	Total: R$:${produto.preco + frete}<br/>
-							  	Entrega: ${entrega} dias úteis
+							  	Entrega: ${entrega} dias Ãºteis
 				  			</div>
 				  			<div class="col-lg-6">
 				  			<p><h2>Dados Para Envio</h2></p>
@@ -81,7 +83,7 @@
 						              <div class="form-row">
 						                <div class="col-md-9">
 						                <div class="form-label-group">
-						                    <input type="text" id="Endereco" class="form-control" placeholder="Endereço" required="required" autofocus="autofocus">
+						                    <input type="text" id="Endereco" class="form-control" placeholder="EndereÃ§o" required="required" autofocus="autofocus">
 						                  </div>
 						                  <br/>
 						                  <div class="form-label-group">
