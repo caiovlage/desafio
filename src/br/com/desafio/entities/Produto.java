@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,8 @@ public class Produto {
 	private String foto;
 	@Column
 	private double preco;
+	@Transient
+	private String precoAux;
 	
 	@OneToMany(mappedBy="produto", cascade = CascadeType.ALL)  
 	private List<VendaProdutos> vendaProdutos;
@@ -47,8 +50,6 @@ public class Produto {
 		this.categoria = categoria;
 		this.foto = foto;
 	}
-
-	
 	
 	public int getIdProduto() {
 		return idProduto;
@@ -65,7 +66,6 @@ public class Produto {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	
 
 	public String getCategoria() {
 		return categoria;
@@ -107,5 +107,11 @@ public class Produto {
 		this.vendaProdutos = vendaProdutos;
 	}
 
-	
+	public String getPrecoAux() {
+		return precoAux;
+	}
+
+	public void setPrecoAux(String precoAux) {
+		this.preco = Double.parseDouble(precoAux.replaceAll(",", ""));
+	}
 }
