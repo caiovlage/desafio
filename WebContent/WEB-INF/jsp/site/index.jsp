@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     <title>Shop Desafio</title> 
-
+ 
     <!-- Bootstrap core CSS -->
     <link href="site/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
