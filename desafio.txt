@@ -1,0 +1,10 @@
+Projeto criado como base par outros projeto.
+frameworks utilizados:
+ - hibernate / jpa
+ - spring
+ - jstl
+
+patterns usados
+ - factory
+ - DI
+ - repo

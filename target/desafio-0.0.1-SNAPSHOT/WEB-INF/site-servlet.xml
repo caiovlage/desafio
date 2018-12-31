@@ -13,7 +13,7 @@
  
 	<mvc:annotation-driven />
 	<context:component-scan
-		base-package="br.com.desafio.site.controller" />
+		base-package="br.com.desafio" />
 	<mvc:default-servlet-handler />
  
 	<bean id="viewResolver"

@@ -61,7 +61,7 @@
                 <a href="detalheProduto?id=${p.idProduto}" align="middle"><img  class="card-img-top" style="vertical-align:middle!important; width:auto!important; height: 144px!important;" src="<c:out value="${p.foto}"/>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><c:out value="${p.titulo}"/></a>
+                    <a href="detalheProduto?id=${p.idProduto}"><c:out value="${p.titulo}"/></a>
                   </h4>
                   <h5>R$${p.preco}</h5>
                   <p class="card-text">${p.descricao}</p>

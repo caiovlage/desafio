@@ -1,21 +1,20 @@
 package br.com.desafio.services;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import br.com.desafio.dao.ProdutoDao;
 import br.com.desafio.dao.VendaProdutosDao;
 import br.com.desafio.entities.Produto;
 import br.com.desafio.entities.VendaProdutos;
 
+@Service
 public class VendaProdutosService {
 
+	@Autowired
 	private VendaProdutosDao vendaProdutosDao;
-	private ProdutoDao produtoDao;
 	
 	
 	public VendaProdutosService() {
-		vendaProdutosDao = new VendaProdutosDao();
-		produtoDao = new ProdutoDao();
 	}
 
 	public void salvarVendas(int id) {
@@ -24,9 +23,6 @@ public class VendaProdutosService {
 		Produto p = new Produto();
 		p.setIdProduto(id);
 		venda.setProduto(p);
-		vendaProdutosDao.save(venda);
-	}
-	public List<Produto> getAll() {
-		return produtoDao.findAll();
+		vendaProdutosDao.salvar(venda);
 	}
 }
